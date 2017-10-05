@@ -20,7 +20,8 @@ export class MyDrawerComponent implements OnInit {
     *************************************************************/
     @Input() selectedPage: string;
 
-    private _navigationItems: Array<any>;
+    private _mainNavItems: Array<any>;
+    private _footerNavItems: Array<any>;
 
     constructor(private routerExtensions: RouterExtensions) {
 
@@ -32,7 +33,7 @@ export class MyDrawerComponent implements OnInit {
     * Add, remove or edit navigationItems to change what is displayed in the app drawer list.
     *************************************************************/
     ngOnInit(): void {
-        this._navigationItems = [
+        this._mainNavItems = [
             {
                 title: "Home",
                 name: "home",
@@ -56,7 +57,10 @@ export class MyDrawerComponent implements OnInit {
                 name: "featured",
                 route: "/featured",
                 icon: "\uf005"
-            },
+            }
+        ];
+
+        this._footerNavItems = [
             {
                 title: "Settings",
                 name: "settings",
@@ -66,8 +70,12 @@ export class MyDrawerComponent implements OnInit {
         ];
     }
 
-    get navigationItems(): Array<any> {
-        return this._navigationItems;
+    get mainNavItems(): Array<any> {
+        return this._mainNavItems;
+    }
+
+    get footerNavItems(): Array<any> {
+        return this._footerNavItems;
     }
 
     /* ***********************************************************
